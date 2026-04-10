@@ -5,7 +5,7 @@ export default function AboutScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}> Segunda tela </Text> 
-      <Link href="/" style={styles.button}>
+      <Link href="/index" style={styles.button}>
              Ir para tela inicial
       </Link> 
     </View>
