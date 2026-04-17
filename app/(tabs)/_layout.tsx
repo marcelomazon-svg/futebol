@@ -4,22 +4,31 @@ export default function TabLayout() {
   return( 
   <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#ffd33d',
+        tabBarActiveTintColor: '#abda04',
+        headerStyle: {
+          backgroundColor: '#042200',
+        },
+        headerShadowVisible: false,
+        headerTintColor: '#fff',
+        tabBarStyle: {
+          backgroundColor: '#ffffffea',
+        },
+
       }}
   >
     <Tabs.Screen
        name="index" 
-        options={{ title: 'Tela Inicial', 
+        options={{ title: 'TABELA', 
           tabBarIcon:({ color, focused }) => (
-          <Ionicons name={focused ? 'home-sharp' : 'home-outline'} color={color} size={24} />
+          <Ionicons name={focused ? 'football-sharp' : 'football-outline'} color={color} size={24} />
       ),
     }} 
     />
     <Tabs.Screen
        name="about"
-        options={{ title: 'Segunda tela',
+        options={{ title: 'JOGOS',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name ={focused ? 'information-circle' : 'information-circle-outline'} color={color} size={24}/>
+            <Ionicons name ={focused ? 'game-controller' : 'game-controller-outline'} color={color} size={24}/>
           ),
         }}/>
   </Tabs>
