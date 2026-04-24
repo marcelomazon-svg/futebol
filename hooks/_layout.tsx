@@ -31,17 +31,8 @@ export default function TabLayout() {
             <Ionicons name ={focused ? 'game-controller' : 'game-controller-outline'} color={color} size={24}/>
           ),
         }}/>
-  
-
-  <Tabs.Screen
-       name="toDoList"
-        options={{ title: 'LISTA JOGADORES',
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons name ={focused ? 'list-circle' : 'list-circle-outline'} color={color} size={24}/>
-          ),
-        }}/>
   </Tabs>
 
-   
+  
   );
 }
