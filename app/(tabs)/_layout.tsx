@@ -40,6 +40,14 @@ export default function TabLayout() {
             <Ionicons name ={focused ? 'list-circle' : 'list-circle-outline'} color={color} size={24}/>
           ),
         }}/>
+
+         <Tabs.Screen
+       name="edit"
+        options={{ title: 'EDIÇÃO',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name ={focused ? 'camera' : 'camera-outline'} color={color} size={24}/>
+          ),
+        }}/>
   </Tabs>
 
    
