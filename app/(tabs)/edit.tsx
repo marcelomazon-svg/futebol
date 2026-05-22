@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const PlaceholderImage = require('@/assets/images/imagemboa.jpg');
 
-export default function edit() {
+export default function Edit() {
   const [selectedImage, setSelectedImage] = useState<string | undefined>(undefined);
 
   const pickImageAsync = async () => {
@@ -29,7 +29,7 @@ export default function edit() {
       </View>
 
       <View style={styles.footerContainer}>
-        <Button theme='primary'label="Escolha uma imagem da galeria" />
+        <Button theme='primary'label="Escolha uma imagem da galeria" onPress={pickImageAsync}/>
         <Button label="Salvar" />
       </View>
     </View>
