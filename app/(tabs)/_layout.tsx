@@ -48,6 +48,14 @@ export default function TabLayout() {
             <Ionicons name ={focused ? 'camera' : 'camera-outline'} color={color} size={24}/>
           ),
         }}/>
+
+         <Tabs.Screen
+       name="BuscaCEP"
+        options={{ title: 'CEP',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name ={focused ? 'location' : 'location-outline'} color={color} size={24}/>
+          ),
+        }}/>
   </Tabs>
 
    
