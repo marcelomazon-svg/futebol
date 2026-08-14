@@ -1,10 +1,10 @@
 import { Keyboard, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
-import { useBuscaCep } from '../../hooks/useBuscaCep'; // Importe o hook
+import { useBuscaCep } from '../../hooks/useBuscaCep';
 import Ionicons from '@expo/vector-icons/Ionicons';
-
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 export default function BuscaCEP() {
-  const { cep, setCep, endereco, buscarCEP } = useBuscaCep(); // Usando o hook
+  const { cep, setCep, endereco, buscarCEP } = useBuscaCep();
 
   function handleBuscar() {
     buscarCEP();
@@ -14,9 +14,16 @@ export default function BuscaCEP() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
-        <Ionicons name="map" size={60} color="#abda04" style={styles.icon} />
-        
-        <Text style={styles.tex}>Consulte seu CEP</Text>
+
+        {/* Ícone de estádio */}
+        <MaterialCommunityIcons
+          name="stadium"
+          size={65}
+          color="#abda04"
+          style={styles.icon}
+        />
+
+        <Text style={styles.tex}>Localize seu Estádio</Text>
 
         <TextInput
           style={styles.textinput}
@@ -31,35 +38,83 @@ export default function BuscaCEP() {
 
         <Text style={styles.title}>{cep}</Text>
 
-        <TouchableOpacity style={styles.button} onPress={handleBuscar}>
-          <Ionicons name="search" size={18} color="#033b02" style={{ marginRight: 8 }} />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleBuscar}
+        >
+          <Ionicons
+            name="search"
+            size={18}
+            color="#033b02"
+            style={{ marginRight: 8 }}
+          />
+
           <Text style={styles.buttonText}>Buscar</Text>
         </TouchableOpacity>
 
         {endereco.logradouro !== '' && (
           <View style={styles.result}>
+
             <View style={styles.resultRow}>
-              <Ionicons name="location-outline" size={16} color="#abda04" style={styles.resultIcon} />
-              <Text style={styles.title}>Rua: {endereco.logradouro}</Text>
+              <Ionicons
+                name="location-outline"
+                size={16}
+                color="#abda04"
+                style={styles.resultIcon}
+              />
+
+              <Text style={styles.title}>
+                Rua: {endereco.logradouro}
+              </Text>
             </View>
+
             <View style={styles.resultRow}>
-              <Ionicons name="home-outline" size={16} color="#abda04" style={styles.resultIcon} />
-              <Text style={styles.title}>Bairro: {endereco.bairro}</Text>
+              <Ionicons
+                name="home-outline"
+                size={16}
+                color="#abda04"
+                style={styles.resultIcon}
+              />
+
+              <Text style={styles.title}>
+                Bairro: {endereco.bairro}
+              </Text>
             </View>
+
             <View style={styles.resultRow}>
-              <Ionicons name="business-outline" size={16} color="#abda04" style={styles.resultIcon} />
-              <Text style={styles.title}>Cidade: {endereco.localidade}</Text>
+              <Ionicons
+                name="business-outline"
+                size={16}
+                color="#abda04"
+                style={styles.resultIcon}
+              />
+
+              <Text style={styles.title}>
+                Cidade: {endereco.localidade}
+              </Text>
             </View>
+
             <View style={styles.resultRow}>
-              <Ionicons name="flag-outline" size={16} color="#abda04" style={styles.resultIcon} />
-              <Text style={styles.title}>Estado: {endereco.uf}</Text>
+              <Ionicons
+                name="flag-outline"
+                size={16}
+                color="#abda04"
+                style={styles.resultIcon}
+              />
+
+              <Text style={styles.title}>
+                Estado: {endereco.uf}
+              </Text>
             </View>
+
           </View>
         )}
+
       </View>
     </TouchableWithoutFeedback>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -68,6 +123,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 16,
   },
+
   textinput: {
     width: '70%',
     borderWidth: 2,
@@ -76,8 +132,8 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     color: '#fff',
     backgroundColor: '#022701',
-    
   },
+
   button: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -88,11 +144,13 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginTop: 10,
   },
+
   buttonText: {
     color: '#033b02',
     fontWeight: 'bold',
     fontSize: 16,
   },
+
   result: {
     marginTop: 20,
     padding: 16,
@@ -100,24 +158,29 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderRadius: 8,
   },
+
   title: {
-  color: '#fff',
-},
-icon: {
+    color: '#fff',
+  },
+
+  icon: {
     marginBottom: 10,
-    },
-     tex: {
-  color: '#fff',
-  fontSize: 20,
-  fontWeight: '700',
-  letterSpacing: 0.5,
-  marginBottom: 20,
-},
-resultRow: {
+  },
+
+  tex: {
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: '700',
+    letterSpacing: 0.5,
+    marginBottom: 20,
+  },
+
+  resultRow: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 6,
   },
+
   resultIcon: {
     marginRight: 6,
   },
